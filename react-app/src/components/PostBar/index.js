@@ -1,12 +1,17 @@
+import './PostBar.css'
+
+
 function PostBar({post}) {
     return (
-        <div>
-            <img src={post.image}></img>
-            <h2>{post.name}</h2>
+        <div className='post-bar-container'>
+            <img className='post-image'src={post.image}></img>
+            <div className='post-name-description-container'>
+            <p className='post-name'>{post.name}</p>
             {post.description.length > 50 ?
-            <h2>{post.description.slice(0, 50) + '...'}</h2> :
-            <h2>{post.description}</h2>
+            <p className='post-description'>{post.description.slice(0, 50) + '...'}</p> :
+            <p>{post.description}</p>
             }
+        </div>
         </div>
 
     )

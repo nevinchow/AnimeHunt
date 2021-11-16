@@ -4,7 +4,7 @@ from app.models import db, Post
 # Adds a demo user, you can add other users here if you want
 def seed_posts():
     Post1 = Post(
-        userId = '1', upvoteCount = '50', downvoteCount = '25', name = 'I love All Might!', description = 'Wow! In this episode, All Might was amazing as he used his fists to smash enemies.', image = "https://static.wikia.nocookie.net/bokunoheroacademia/images/1/18/It%27s_All_Right.png/revision/latest?cb=20170708155615"
+        userId = '1', upvoteCount = '50', downvoteCount = '25', name = 'I love All Might!', description = 'Wow! In this episode, All Might was amazing as he used his fists to smash enemies. He really ', image = "https://www.looper.com/img/gallery/my-hero-academia-the-reason-all-might-is-the-most-powerful-teacher/intro-1596067346.jpg"
     )
     db.session.add(Post1)
 
