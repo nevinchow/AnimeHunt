@@ -1,17 +1,29 @@
 import PostBar from "../PostBar"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
-
+import { getPosts } from "../../store/post"
 
 function HomePage() {
     const dispatch = useDispatch()
-
+    const user = useSelector((state) => (state.session.user))
+    const userId = user.id
+    const posts = useSelector((state) => Object.values(state.postReducer))
 
     useEffect(() => {
-        // dispatch(getPosts())
-    })
+        dispatch(getPosts())
+    }, [dispatch])
+
+
     return (
-        <PostBar/>
+        <div>
+            {posts.map((post)=>(
+                <>
+                <PostBar post={post}/>
+
+
+                </>
+            ))}
+        </div>
     )
 }
 

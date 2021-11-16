@@ -12,6 +12,8 @@ class Post(db.Model):
     description = db.Column(db.String(400), nullable=False)
     image = db.Column(db.String(255))
 
+    comments = db.relationship("Comment", back_populates="post")
+
 
     def to_dict(self):
         return {
