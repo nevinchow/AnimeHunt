@@ -6,7 +6,19 @@ def seed_comments():
     Comment1 = Comment(
         userId = '1', postId = '1', description = 'I hate to disagree, but I thought he was lame!'
     )
+    Comment2 = Comment(
+        userId = '1', postId = '1', description = 'I hate to disagree, but I thought he was lame!'
+    )
+    Comment3 = Comment(
+        userId = '2', postId = '1', description = 'I hate to disagree, but I thought he was lame!'
+    )
+    Comment4 = Comment(
+        userId = '2', postId = '2', description = 'I hate to disagree, but I thought he was lame!'
+    )
     db.session.add(Comment1)
+    db.session.add(Comment2)
+    db.session.add(Comment3)
+    db.session.add(Comment4)
 
     db.session.commit()
 

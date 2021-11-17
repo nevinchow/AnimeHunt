@@ -33,5 +33,12 @@
     justify-content: flex-start;
     border: 1px solid black;
     height: 6vh;
+    width: 80%;
 
+}
+
+.post-bar-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
