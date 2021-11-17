@@ -3,14 +3,12 @@ import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import NewPostModal from './NewPostModal';
-import { useModal } from '../context/Modal';
 import '/home/nevinchow/module7/python-project-starter/react-app/src/components/NavBar.css'
 import NewPostForm from './NewPostForm';
+import NewPostModal from './NewPostModal';
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const [isClosed, setIsClosed] = useState(false)
-  const {toggleModal, setModalContent} = useModal();
 
 
   if (sessionUser) {
@@ -20,8 +18,7 @@ const NavBar = () => {
             <NavLink to='/' exact={true} activeClassName='active' className='home'>
               Home
             </NavLink>
-            {isClosed && <NewPostModal/>}
-            <button onClick={() => setIsClosed(true)}>New Post</button>
+            <NewPostModal setIsClosed={setIsClosed}/>
             <img className='user-profilePic' src={sessionUser.profilePic}></img>
             <LogoutButton className='logout-button' />
       </nav>

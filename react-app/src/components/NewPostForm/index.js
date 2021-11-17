@@ -6,7 +6,7 @@ import { createPost } from '../../store/post';
 
 
 
-export default function NewPostForm() {
+export default function NewPostForm({setShowModal}) {
     const dispatch = useDispatch()
     const history = useHistory();
     const [name, setName] = useState("")
@@ -20,7 +20,7 @@ export default function NewPostForm() {
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-
+        setShowModal(false)
         const payload={
             name,
             description,
@@ -36,28 +36,34 @@ export default function NewPostForm() {
 
     }
 
-
+    const handleCancel= async (e) => {
+      e.preventDefault();
+      setShowModal(false)
+    }
 
 
    return (
-       <div className='form-page-container'>
-           <h2>New Post</h2>
-       <form className='form-container' onSubmit={handleSubmit} >
-           <input className='post-form-input'
-           placeholder='Title'
-           value={name}
-           onChange={updateName}
-           required />
-           <input className='post-form-description'
-           placeholder='Description'
-           value={description}
-           onChange={updateDescription}/>
-           <input className='post-form-input'
-           placeholder='Image URL'
-           value={image}
-           onChange={updatedImage}/>
-           <button className='post-submit-button'type='submit'>Submit</button>
-       </form>
-       </div>
+    <div className='modal-wrapper'>
+    <div className='form-page-container'>
+  <h2>New Post</h2>
+<form className='form-container' onSubmit={handleSubmit} >
+  <input className='post-form-input'
+  placeholder='Title'
+  value={name}
+  onChange={updateName}
+  required />
+  <input className='post-form-description'
+  placeholder='Description'
+  value={description}
+  onChange={updateDescription}/>
+  <input className='post-form-input'
+  placeholder='Image URL'
+  value={image}
+  onChange={updatedImage}/>
+  <button className='post-submit-button'type='submit'>Submit</button>
+  <button className='post-cancel-button' onClick={handleCancel}>Cancel</button>
+</form>
+</div>
+</div>
    )
 }

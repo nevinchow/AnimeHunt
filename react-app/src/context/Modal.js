@@ -1,38 +1,37 @@
-import { createContext, useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
-export const ModalContext = createContext();
+const ModalContext = React.createContext();
 
-export const ModalProvider = ({children}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(null)
+export function ModalProvider({ children }) {
+  const modalRef = useRef();
+  const [value, setValue] = useState();
 
-    function toggleModal() {
-        setIsOpen(true);
-        const body = document.querySelector("body");
-        body.style.overflow = "hidden";
-    }
+  useEffect(() => {
+    setValue(modalRef.current);
+  }, [])
 
-    function closeModal() {
-        setIsOpen(false);
-        const body = document.querySelector("body");
-        body.style.overflow = "auto";
-    }
-
-    return (
-        <ModalContext.Provider
-            value={{
-                isOpen,
-                setIsOpen,
-                toggleModal,
-                closeModal,
-                modalContent,
-                setModalContent
-            }}
-        >
-            {children}
-        </ModalContext.Provider>
-    )
+  return (
+    <>
+      <ModalContext.Provider value={value}>
+        {children}
+      </ModalContext.Provider>
+      <div ref={modalRef} />
+    </>
+  );
 }
 
-export const useModal = () => useContext(ModalContext)
+export function Modal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div id="modal">
+      <div id="modal-background" onClick={onClose} />
+      <div id="modal-content">
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}
