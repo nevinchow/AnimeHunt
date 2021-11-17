@@ -2,11 +2,13 @@ import './PostBar.css'
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { removePost } from '../../store/post';
+import EditPostModal from '../EditPostModal';
+import { useSelector } from 'react-redux';
 
 function PostBar({post}) {
     const history = useHistory();
     const dispatch = useDispatch();
-
+    const user = useSelector((state) => (state.session.user))
     const handleDelete = async (e, post) => {
         e.preventDefault();
         let data = await dispatch(removePost(post.id))
@@ -15,8 +17,6 @@ function PostBar({post}) {
         }
 
     }
-
-
     return (
         <div className='post-bar-container'>
             <img className='post-image'src={post.image}></img>
@@ -26,7 +26,13 @@ function PostBar({post}) {
             <p className='post-description'>{post.description.slice(0, 100) + '...'}</p> :
             <p>{post.description}</p>
             }
+            {post.id == user.id ?
+            <>
+            <EditPostModal post={post}/>
             <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
+            </> :
+            <></>}
+
         </div>
         </div>
 

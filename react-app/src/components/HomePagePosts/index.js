@@ -31,7 +31,7 @@ function PostsContainer () {
          {posts.reverse().map((post)=>(
                 <>
                 <PostBar post={post}/>
-                <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
+
                 </>
             ))}
         </>

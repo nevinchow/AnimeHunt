@@ -18,6 +18,8 @@ const deletePost=(post) => ({
     post
 })
 
+
+
 // export const getPostsById = (userId) => async(dispatch) => {
 //     const response = await fetch(`/api/posts/${userId}`)
 //     const posts = await response.json()
@@ -41,6 +43,17 @@ export const createPost=(payload) => async(dispatch) => {
         dispatch(addPost(post))
         return post
     }
+}
+
+export const editPost = (payload) => async(dispatch) => {
+    const response = await fetch(`/api/posts/${payload.postId}/edit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+    const newPost = await response.json();
+    dispatch(addPost(newPost));
+    return newPost
 }
 
 export const removePost=(postId)=>async(dispatch) => {

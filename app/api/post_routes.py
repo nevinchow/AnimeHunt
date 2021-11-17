@@ -37,3 +37,19 @@ def delete_post(id):
     db.session.commit()
 
     return post.to_dict()
+
+
+@post_routes.route('/<int:id>/edit', methods=['POST'])
+# @login_required
+def edit_post(id):
+
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        post = Post.query.get(id)
+        post.name = data['name']
+        post.description = data['description']
+        post.image = data['image']
+        db.session.commit()
+        return post.to_dict()
