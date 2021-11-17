@@ -28,3 +28,12 @@ def add_post():
 # def posts(id):
 #     posts = Post.query.filter(Post.userId == id).all()
 #     return {'posts': [post.to_dict() for post in posts]}
+
+
+@post_routes.route('/<int:id>/delete', methods=['DELETE'])
+def delete_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+
+    return post.to_dict()
