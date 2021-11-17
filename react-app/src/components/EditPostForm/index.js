@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import './NewPostForm.css'
-import { createPost } from '../../store/post';
+import { editPost } from '../../store/post';
 
 
 
-export default function NewPostForm({setShowModal}) {
+export default function EditPostForm({setShowModal, post}) {
     const dispatch = useDispatch()
     const history = useHistory();
-    const [name, setName] = useState("")
-    const [description, setDescription] = useState("")
-    const [image, setImage] = useState("")
+    const [name, setName] = useState(post.name)
+    const [description, setDescription] = useState(post.description)
+    const [image, setImage] = useState(post.image)
+    const postId = post.id
 
 
-  
     const updateName = (e) => setName(e.target.value)
     const updateDescription = (e) => setDescription(e.target.value)
     const updatedImage = (e) => setImage(e.target.value)
@@ -26,10 +25,10 @@ export default function NewPostForm({setShowModal}) {
             name,
             description,
             image,
-
+            postId
         }
-
-        const added=await dispatch(createPost(payload))
+        console.log(payload)
+        const added=await dispatch(editPost(payload))
         if(added) {
             history.push(`/`)
         }
@@ -46,7 +45,7 @@ export default function NewPostForm({setShowModal}) {
    return (
     <div className='modal-wrapper'>
     <div className='form-page-container'>
-  <h2>New Post</h2>
+  <h2>Edit Post</h2>
 <form className='form-container' onSubmit={handleSubmit} >
   <input className='post-form-input'
   placeholder='Title'

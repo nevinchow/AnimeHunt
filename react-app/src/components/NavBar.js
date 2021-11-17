@@ -1,12 +1,15 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import NewPostForm from './NewPostForm';
 import '/home/nevinchow/module7/python-project-starter/react-app/src/components/NavBar.css'
+import NewPostForm from './NewPostForm';
+import NewPostModal from './NewPostModal';
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
+  const [isClosed, setIsClosed] = useState(false)
+
 
   if (sessionUser) {
     return (
@@ -15,9 +18,7 @@ const NavBar = () => {
             <NavLink to='/' exact={true} activeClassName='active' className='home'>
               Home
             </NavLink>
-            <NavLink to='/new-post'>
-            <button>New Post</button>
-            </NavLink>
+            <NewPostModal setIsClosed={setIsClosed}/>
             <img className='user-profilePic' src={sessionUser.profilePic}></img>
             <LogoutButton className='logout-button' />
       </nav>
