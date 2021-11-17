@@ -1,6 +1,19 @@
-function PostBar() {
+import './PostBar.css'
+
+
+function PostBar({post}) {
     return (
-        <h1>Nevin</h1>
+        <div className='post-bar-container'>
+            <img className='post-image'src={post.image}></img>
+            <div className='post-name-description-container'>
+            <p className='post-name'>{post.name}</p>
+            {post.description.length > 50 ?
+            <p className='post-description'>{post.description.slice(0, 100) + '...'}</p> :
+            <p>{post.description}</p>
+            }
+        </div>
+        </div>
+
     )
 }
 

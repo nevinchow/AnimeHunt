@@ -1,0 +1,33 @@
+.form-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 40vh;
+    width: 40vw;
+    margin-top: 50px;
+    align-items: center;
+
+}
+
+.post-form-input {
+    height: 3vh;
+    margin-bottom: 5%;
+    width: 70%;
+}
+
+.post-form-description {
+    height: 50%;
+    margin-bottom: 5%;
+    width: 90%;
+
+}
+
+.post-submit-button {
+    width: 10%;
+}

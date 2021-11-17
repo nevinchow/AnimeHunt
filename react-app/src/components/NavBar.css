@@ -1,0 +1,19 @@
+.nav-bar {
+    height: 9vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user-profilePic {
+    border-radius: 50%;
+    height: 80%;
+    width: 4%;
+    margin-right: 3%;
+}
+
+.home {
+    margin-right: 85%
+}
