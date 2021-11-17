@@ -8,7 +8,7 @@ function PostBar({post}) {
             <div className='post-name-description-container'>
             <p className='post-name'>{post.name}</p>
             {post.description.length > 50 ?
-            <p className='post-description'>{post.description.slice(0, 50) + '...'}</p> :
+            <p className='post-description'>{post.description.slice(0, 100) + '...'}</p> :
             <p>{post.description}</p>
             }
         </div>
