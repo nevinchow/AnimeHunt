@@ -18,7 +18,7 @@ function HomePage() {
     return (
         <>
         <div className='home-page-container'>
-            {posts.map((post)=>(
+            {posts.reverse().map((post)=>(
                 <>
                 <PostBar post={post}/>
                 </>
