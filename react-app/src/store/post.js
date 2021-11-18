@@ -89,7 +89,7 @@ const postReducer =(state = initialState, action) => {
 
         case DELETE_POST: {
             const newState = {...state}
-            delete newState[action.postId]
+            delete newState[action.post]
             return {...state}
         }
         default:
