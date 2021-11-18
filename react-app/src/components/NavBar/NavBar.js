@@ -2,10 +2,10 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
-import '/home/nevinchow/module7/python-project-starter/react-app/src/components/NavBar.css'
-import NewPostForm from './NewPostForm';
-import NewPostModal from './NewPostModal';
+import LogoutButton from '../auth/LogoutButton';
+import './NavBar.css'
+import NewPostForm from '../NewPostForm';
+import NewPostModal from '../NewPostModal';
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const [isClosed, setIsClosed] = useState(false)
