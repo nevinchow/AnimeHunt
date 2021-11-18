@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
-import '/home/nevinchow/module7/python-project-starter/react-app/src/components/NavBar.css'
+import './NavBar.css'
 import NewPostForm from './NewPostForm';
 import NewPostModal from './NewPostModal';
 const NavBar = () => {
