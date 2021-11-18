@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import './NewPostForm.css'
 import { createPost } from '../../store/post';
+import { useSelector } from 'react-redux';
 
 
 
@@ -12,9 +13,10 @@ export default function NewPostForm({setShowModal}) {
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState("")
+    const user = useSelector((state) => (state.session.user))
+    const userId = user.id
 
 
-  
     const updateName = (e) => setName(e.target.value)
     const updateDescription = (e) => setDescription(e.target.value)
     const updatedImage = (e) => setImage(e.target.value)
@@ -23,6 +25,7 @@ export default function NewPostForm({setShowModal}) {
         e.preventDefault();
         setShowModal(false)
         const payload={
+            userId,
             name,
             description,
             image,
