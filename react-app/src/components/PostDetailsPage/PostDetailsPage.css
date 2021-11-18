@@ -1,0 +1,32 @@
+.post-detail-image {
+    height: 60%;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.post-title-cancel-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-details-close {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}
+
+.username-comment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.username-tag {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.comment-input {
+    margin-bottom: 2%;
+}

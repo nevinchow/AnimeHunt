@@ -9,14 +9,15 @@ function PostDetailsModal({post}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
-      <><div onClick={() => setShowModal(true)}>
+      <>
+      <div onClick={() => setShowModal(true)}>
         <PostBar post={post}/>
+        </div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <PostDetailsPage setShowModal={setShowModal}/>
+            <PostDetailsPage setShowModal={setShowModal} post={post}/>
           </Modal>
         )}
-      </div>
       </>
     );
   }
