@@ -26,7 +26,7 @@ function PostBar({post}) {
             <p className='post-description'>{post.description.slice(0, 100) + '...'}</p> :
             <p>{post.description}</p>
             }
-            {post.id == user.id ?
+            {post.userId == user.id ?
             <>
             <EditPostModal post={post}/>
             <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>

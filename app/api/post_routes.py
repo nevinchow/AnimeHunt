@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db,Post
+from app.models import db, Post
 from app.forms.post_form import PostForm
 
 post_routes = Blueprint('posts', __name__)
