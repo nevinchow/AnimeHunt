@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { getPosts } from "../../store/post"
 import { removePost } from '../../store/post';
 import { useHistory } from "react-router"
+import PostDetailsModal from "../PostDetailsModal";
 function PostsContainer () {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -30,7 +31,7 @@ function PostsContainer () {
         <>
          {posts.reverse().map((post)=>(
                 <>
-                <PostBar post={post}/>
+                <PostDetailsModal post={post}/>
 
                 </>
             ))}
