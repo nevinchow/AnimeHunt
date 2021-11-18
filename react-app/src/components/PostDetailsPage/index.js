@@ -5,17 +5,21 @@ import { createPost } from '../../store/post';
 import { useSelector } from 'react-redux';
 import './PostDetailsPage.css'
 import { getCommentsByPostId } from '../../store/comment';
-
+import { createComment } from '../../store/comment';
+import { getUsers } from '../../store/user';
 
 function PostDetailsPage ({setShowModal, post}) {
     const dispatch = useDispatch()
     const history = useHistory()
-    const postId = post.id
+    const postId = post?.id
     const comments = useSelector(state => Object.values(state.commentReducer))
     const postComments = comments.filter((comment) => comment.postId === postId)
-    console.log(postComments)
-    const [comment, setComment] = useState('')
-    const updateComment = (e) => setComment(e.target.value)
+    const user = useSelector(state => state.session.user)
+    const userId = user?.id
+    const username = user.username
+    console.log(username)
+    const [description, setDescription] = useState('')
+    const updateComment = (e) => setDescription(e.target.value)
     const handleCancel= (e) => {
         e.preventDefault();
         setShowModal(false)
@@ -24,18 +28,21 @@ function PostDetailsPage ({setShowModal, post}) {
     const handleSubmit = async(e) => {
         e.preventDefault();
         const payload = {
+            userId,
             postId,
-            comment
+            description,
+            username
         }
 
-        const added = await dispatch(createPost(payload))
+        const added = await dispatch(createComment(payload))
         if (added) {
             history.push(`/`)
         }
     }
 
     useEffect(() => {
-        dispatch(getCommentsByPostId(postId))
+        dispatch(getCommentsByPostId(postId),
+        dispatch(getUsers()))
     }, [dispatch])
 
     return (
@@ -49,14 +56,19 @@ function PostDetailsPage ({setShowModal, post}) {
             <p>{post.description}</p>
             <h3>Discussion</h3>
             <form onSubmit={handleSubmit}>
-                <input
+                <input className='comment-input'
                 placeholder='Leave a comment'
-                value={comment}
+                value={description}
                 onChange={updateComment}/>
                 <button type='submit'>Submit</button>
             </form>
             {postComments.map((postComment) => (
-                <p>{postComment.description}</p>
+                <>
+                <div className='username-comment'>
+                    <p className='username-tag'>{postComment.username}</p>
+                    <p className='comment-tag'>{postComment.description}</p>
+                </div>
+                </>
             ))}
         </div>
 

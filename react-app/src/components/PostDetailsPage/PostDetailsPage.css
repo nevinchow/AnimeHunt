@@ -15,3 +15,18 @@
     height: 40px;
     background-color: white;
 }
+
+.username-comment {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.username-tag {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.comment-input {
+    margin-bottom: 2%;
+}
