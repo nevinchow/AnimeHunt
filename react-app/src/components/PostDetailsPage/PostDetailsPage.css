@@ -1,0 +1,17 @@
+.post-detail-image {
+    height: 60%;
+    width: 90%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.post-title-cancel-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-details-close {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}

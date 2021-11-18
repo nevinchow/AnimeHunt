@@ -9,7 +9,7 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"))
-
+    
     post = db.relationship("Post", back_populates="comments")
 
 
