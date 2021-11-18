@@ -12,11 +12,8 @@ function HomePage() {
     const history = useHistory()
     const user = useSelector((state) => (state.session.user))
     const userId = user.id
-    const posts = useSelector((state) => Object.values(state.postReducer))
+   
 
-    useEffect(() => {
-        dispatch(getPosts())
-    }, [dispatch])
 
 
 
