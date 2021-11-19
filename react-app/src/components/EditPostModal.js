@@ -7,14 +7,16 @@ import EditPostForm from './EditPostForm';
 
 
 function EditPostModal({post}) {
-    const [showModal, setShowModal] = useState(false);
+    const [showEditPostModal, setShowEditPostModal] = useState(false);
 
     return (
       <>
-        <button onClick={() => setShowModal(true)}>Edit Post</button>
-        {showModal && (
-          <Modal onClose={() => setShowModal(false)}>
-            <EditPostForm setShowModal={setShowModal} post={post}/>
+        <button onClick={(e) => {
+          e.stopPropagation()
+          setShowEditPostModal(true)}}>Edit Post</button>
+        {showEditPostModal && (
+          <Modal onClose={() => setShowEditPostModal(false)}>
+            <EditPostForm setShowEditPostModal={setShowEditPostModal} post={post}/>
           </Modal>
         )}
       </>

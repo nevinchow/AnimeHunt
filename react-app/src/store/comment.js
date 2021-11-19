@@ -17,10 +17,23 @@ const deleteComment=(comment) => ({
     comment
 })
 
-export const getCommentsByPostId = (postId) => async(dispatch) => {
-    const response = await fetch(`/api/comments/${postId}`)
-    const comments = await response.json()
-    dispatch(loadComments(comments.comments))
+export const editComment = (payload) => async(dispatch) => {
+    const response = await fetch(`/api/comments/${payload.commentId}/edit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+    })
+    const newComment = await response.json();
+    dispatch(addComment(newComment));
+    return newComment
+}
+
+
+
+export const getComments = () => async(dispatch) => {
+    const response = await fetch(`/api/comments`)
+    const data = await response.json()
+    dispatch(loadComments(data.comments))
 }
 
 export const createComment = (payload) => async (dispatch) => {

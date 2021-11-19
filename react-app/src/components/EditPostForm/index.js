@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { editPost } from '../../store/post';
+import './EditPostForm.css'
 
 
-
-export default function EditPostForm({setShowModal, post}) {
+export default function EditPostForm({setShowEditPostModal, post}) {
     const dispatch = useDispatch()
     const history = useHistory();
     const [name, setName] = useState(post.name)
@@ -20,7 +20,7 @@ export default function EditPostForm({setShowModal, post}) {
 
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        setShowModal(false)
+        setShowEditPostModal(false)
         const payload={
             name,
             description,
@@ -38,7 +38,7 @@ export default function EditPostForm({setShowModal, post}) {
 
     const handleCancel= async (e) => {
       e.preventDefault();
-      setShowModal(false)
+      setShowEditPostModal(false)
     }
 
 

@@ -4,10 +4,11 @@ import { useHistory } from 'react-router';
 import { createPost } from '../../store/post';
 import { useSelector } from 'react-redux';
 import './PostDetailsPage.css'
-import { getCommentsByPostId } from '../../store/comment';
+import { getComments } from '../../store/comment';
 import { createComment } from '../../store/comment';
 import { getUsers } from '../../store/user';
 import { removeComment } from '../../store/comment';
+import EditCommentModal from '../EditCommentModal';
 
 function PostDetailsPage ({setShowModal, post}) {
     const dispatch = useDispatch()
@@ -18,8 +19,11 @@ function PostDetailsPage ({setShowModal, post}) {
     const user = useSelector(state => state.session.user)
     const userId = user?.id
     const username = user.username
-    console.log(username)
     const [description, setDescription] = useState('')
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [showButton, setShowButton] = useState(true)
+
+
     const updateComment = (e) => setDescription(e.target.value)
     const handleCancel= (e) => {
         e.preventDefault();
@@ -49,10 +53,11 @@ function PostDetailsPage ({setShowModal, post}) {
         }
     }
 
+
+
     useEffect(() => {
-        dispatch(getCommentsByPostId(postId),
-        dispatch(getUsers()))
-    }, [dispatch])
+        dispatch(getComments(),
+        )}, [dispatch])
 
     return (
 
@@ -64,7 +69,7 @@ function PostDetailsPage ({setShowModal, post}) {
             <img className='post-detail-image'src={post.image}></img>
             <p>{post.description}</p>
             <h3>Discussion</h3>
-            <form onSubmit={handleSubmit}>
+            <form style= {{display: showButton ? "block" : "none"}} onSubmit={handleSubmit}>
                 <input className='comment-input'
                 placeholder='Leave a comment'
                 value={description}
@@ -76,7 +81,15 @@ function PostDetailsPage ({setShowModal, post}) {
                 <div className='username-comment'>
                     <p className='username-tag'>{postComment.username}</p>
                     <p className='comment-tag'>{postComment.description}</p>
-                    <button onClick={(e) => {handleDelete(e, postComment)}}>Delete</button>
+                    {postComment.userId == userId ?
+                    <>
+                    <EditCommentModal comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
+                    <button style= {{display: showButton ? "block" : "none"}} onClick={(e) => {
+                        setShowButton(false)
+                        handleDelete(e, postComment)}}>Delete</button>
+                    </> :
+                    <></>
+                    }
                 </div>
                 </>
             ))}
