@@ -7,6 +7,7 @@ import './PostDetailsPage.css'
 import { getCommentsByPostId } from '../../store/comment';
 import { createComment } from '../../store/comment';
 import { getUsers } from '../../store/user';
+import { removeComment } from '../../store/comment';
 
 function PostDetailsPage ({setShowModal, post}) {
     const dispatch = useDispatch()
@@ -40,6 +41,14 @@ function PostDetailsPage ({setShowModal, post}) {
         }
     }
 
+    const handleDelete = async (e, postComment) => {
+        e.preventDefault();
+        let data = await dispatch(removeComment(postComment.id))
+        if (data) {
+            history.push(`/`)
+        }
+    }
+
     useEffect(() => {
         dispatch(getCommentsByPostId(postId),
         dispatch(getUsers()))
@@ -67,6 +76,7 @@ function PostDetailsPage ({setShowModal, post}) {
                 <div className='username-comment'>
                     <p className='username-tag'>{postComment.username}</p>
                     <p className='comment-tag'>{postComment.description}</p>
+                    <button onClick={(e) => {handleDelete(e, postComment)}}>Delete</button>
                 </div>
                 </>
             ))}
