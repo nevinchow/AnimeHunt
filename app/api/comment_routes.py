@@ -5,7 +5,7 @@ from app.forms.comment_form import CommentForm
 
 comment_routes = Blueprint('comments', __name__)
 
-@comment_routes.route('/')
+@comment_routes.route('')
 def comments():
     comments = Comment.query.all()
     return {'comments': [comment.to_dict() for comment in comments]}
