@@ -9,6 +9,7 @@ import EditPostForm from './EditPostForm';
 function EditPostModal({post}) {
     const [showEditPostModal, setShowEditPostModal] = useState(false);
 
+
     return (
       <>
         <button onClick={(e) => {

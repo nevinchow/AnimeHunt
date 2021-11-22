@@ -16,6 +16,9 @@ function PostDetailsModal({post}) {
     const [showModal, setShowModal] = useState(false);
     const user = useSelector((state) => (state.session.user))
 
+
+
+
     const handleDelete = async (e, post) => {
       e.preventDefault();
       let data = await dispatch(removePost(post.id))

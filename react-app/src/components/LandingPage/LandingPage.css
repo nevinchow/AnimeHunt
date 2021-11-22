@@ -1,0 +1,9 @@
+.landing-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.sign-up-form-container {
+    border: 1px solid black;
+}

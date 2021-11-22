@@ -1,5 +1,9 @@
 .edit-comment-modal {
     position: relative;
-    margin-left: 27%;
-    margin-top: 13.5%;
+    margin-left: 13%;
+    margin-top: 16.5%;
+}
+
+.comment-modal {
+    position: relative;
 }
