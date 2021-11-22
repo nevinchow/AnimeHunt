@@ -9,14 +9,9 @@ function PostBar({post}) {
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector((state) => (state.session.user))
-    const handleDelete = async (e, post) => {
-        e.preventDefault();
-        let data = await dispatch(removePost(post.id))
-        if (data) {
-            history.push(`/`)
-        }
-
-    }
+    const comments = useSelector((state) => Object.values(state.commentReducer))
+    console.log(comments)
+    const postComments = comments.filter((comment) => comment.postId === post.id)
     return (
         <div className='post-bar-container'>
             <img className='post-image'src={post.image}></img>
@@ -26,13 +21,10 @@ function PostBar({post}) {
             <p className='post-description'>{post.description.slice(0, 100) + '...'}</p> :
             <p>{post.description}</p>
             }
-            {post.userId == user.id ?
-            <>
-            <EditPostModal post={post}/>
-            <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
-            </> :
-            <></>}
-
+            {postComments.length === 1 ?
+            <p>{postComments.length} comment</p> :
+            <p>{postComments.length} comments</p>
+            }
         </div>
         </div>
 

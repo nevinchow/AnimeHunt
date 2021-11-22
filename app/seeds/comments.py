@@ -4,7 +4,7 @@ from app.models import db, Comment
 # Adds a demo user, you can add other users here if you want
 def seed_comments():
     Comment1 = Comment(
-        userId = '1', postId = '1', description = 'I hate to disagree, but I thought he was lame!'
+        userId = '1', postId = '1', description = 'I hate to disagree, but I thought he was lame!', username = 'Demo'
     )
     db.session.add(Comment1)
 
