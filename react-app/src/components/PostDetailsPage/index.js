@@ -49,7 +49,6 @@ function PostDetailsPage ({setShowModal, post}) {
                 const added = await dispatch(createComment(payload))
                 if (added) {
                     history.push(`/`)
-                    setShowModal(false)
                 }
             }
     }
