@@ -101,7 +101,6 @@ function PostDetailsPage ({setShowModal, post}) {
                     <>
                     <EditCommentModal className='comment-modal'comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
                     <button style= {{display: showButton ? "block" : "none"}} onClick={(e) => {
-                        setShowButton(false)
                         handleDelete(e, postComment)}}>Delete</button>
                     </> :
                     <></>
