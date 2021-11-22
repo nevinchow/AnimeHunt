@@ -2,8 +2,38 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    border: 1px solid black;
+    height: 80vh;
+    width: 80vw;
+    margin-left: 10vw;
+    background-color: white;
+    position: relative;
+    top: 10%;
+
 }
 
 .sign-up-form-container {
     border: 1px solid black;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    background-color: white;
+}
+
+.welcome-tag {
+    margin-top: 15%;
+}
+
+.sign-up-tag {
+    display: flex;
+    justify-content: center;
+}
+
+.background {
+    background-image: url(https://i.ibb.co/BsKt3MK/create-anime-background-style.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
