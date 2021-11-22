@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { NavLink } from 'react-router-dom';
+import './SignUpForm.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -52,41 +54,41 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
+      <div className='sign-up-form-error-container'>
         {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
+          <div className="error" key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
-        <input
+      <div className='sign-up-form-input-container'>
+        <input className='sign-up-form-input'
+          placeholder='Username'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
-        <input
+      <div className='sign-up-form-input-container'>
+        <input className='sign-up-form-input'
+        placeholder='Email Address'
           type='text'
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
-        <input
+      <div className='sign-up-form-input-container'>
+        <input className='sign-up-form-input'
+        placeholder='Password'
           type='password'
           name='password'
           onChange={updatePassword}
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
+      <div className='sign-up-form-input-container'>
+        <input className='sign-up-form-input'
+        placeholder='Confirm Password'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -94,7 +96,15 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <div className='sign-up-form-input-container'>
+      <button className='sign-up-form-submit'type='submit'>Sign Up</button>
+      </div>
+      <div className='sign-up-form-input-container'>
+        <p className='log-in-nav-link'>Have an account already? </p>
+        </div>
+        <div className='sign-up-form-input-container'>
+        <NavLink className='sign-up-form-login-link'to='/login'>Log in </NavLink>
+        </div>
     </form>
   );
 };

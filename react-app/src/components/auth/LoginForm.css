@@ -1,0 +1,41 @@
+.log-in-form-container {
+    border: 1px solid black;
+    width: 25%;
+    margin-left: 37.5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    position: relative;
+    top: 35%;
+
+}
+
+.log-in-form-input {
+    margin-bottom: 5%;
+}
+
+.log-in-form-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.log-in-form-nav-link-container {
+    display: flex;
+    justify-content: center;
+}
+
+.log-in-form-errors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+.log-in-form-input-container {
+    display: flex;
+    justify-content: center;
+    width: 15vw;
+}
+.error {
+    color: red;
+}
