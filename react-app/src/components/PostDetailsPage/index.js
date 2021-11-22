@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { createPost } from '../../store/post';
 import { useSelector } from 'react-redux';
 import './PostDetailsPage.css'
 import { getComments } from '../../store/comment';
 import { createComment } from '../../store/comment';
-import { getUsers } from '../../store/user';
 import { removeComment } from '../../store/comment';
 import EditCommentModal from '../EditCommentModal';
 
@@ -15,12 +13,11 @@ function PostDetailsPage ({setShowModal, post}) {
     const history = useHistory()
     const postId = post?.id
     const comments = useSelector(state => Object.values(state.commentReducer))
-    const postComments = comments.filter((comment) => comment.postId === postId)
+    const postComments = comments?.filter((comment) => comment.postId === postId)
     const user = useSelector(state => state.session.user)
     const userId = user?.id
-    const username = user.username
+    const username = user?.username
     const [description, setDescription] = useState('')
-    const [showEditForm, setShowEditForm] = useState(false)
     const [showButton, setShowButton] = useState(true)
     const [errors, setErrors] = useState([]);
 
@@ -101,7 +98,7 @@ function PostDetailsPage ({setShowModal, post}) {
                 <div className='username-comment'>
                     <p className='username-tag'>{postComment.username}</p>
                     <p className='comment-tag'>{postComment.description}</p>
-                    {postComment.userId == userId ?
+                    {postComment.userId === userId ?
                     <>
                     <EditCommentModal className='comment-modal'comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
                     <button style= {{display: showButton ? "block" : "none"}} onClick={(e) => {

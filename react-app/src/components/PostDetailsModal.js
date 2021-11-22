@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { Modal } from '../context/Modal';
 import { useState } from 'react';
 import PostBar from './PostBar';
@@ -41,7 +40,7 @@ function PostDetailsModal({post}) {
             <PostDetailsPage setShowModal={setShowModal} post={post}/>
           </Modal>
         )}
-        {post.userId == user.id ?
+        {post.userId === user.id ?
             <>
             <EditPostModal post={post}/>
             <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
