@@ -12,9 +12,17 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
+    let errors = [];
+    if(!username) errors.push('Please provide a username.')
+    if(!email || !email.includes('@')) errors.push('Please provide a valid email address.')
+    if (password !== repeatPassword) errors.push('Passwords must match.')
+    if (errors.length > 0) {
+      setErrors(errors);
+      return null;
+    } else if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)

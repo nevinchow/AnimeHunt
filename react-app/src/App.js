@@ -10,10 +10,14 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
 import NewPostForm from './components/NewPostForm';
+import { useSelector } from 'react-redux';
+import LandingPage from './components/LandingPage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     (async() => {
@@ -46,9 +50,12 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        {user ? <ProtectedRoute path='/' exact={true} >
           <HomePage />
-        </ProtectedRoute>
+        </ProtectedRoute> :
+        <Route path='/' exact={true}>
+          <LandingPage/>
+          </Route>}
       </Switch>
     </BrowserRouter>
   );

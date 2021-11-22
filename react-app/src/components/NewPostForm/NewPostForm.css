@@ -43,5 +43,6 @@
     right: 22.5%;
     display: block;
     border: 1px solid black;
-    overflow-y: auto
+    overflow-y: auto;
+
 }

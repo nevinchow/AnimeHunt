@@ -4,10 +4,11 @@ import { useHistory } from 'react-router';
 import { createPost } from '../../store/post';
 import { useSelector } from 'react-redux';
 import './PostDetailsPage.css'
-import { getCommentsByPostId } from '../../store/comment';
+import { getComments } from '../../store/comment';
 import { createComment } from '../../store/comment';
 import { getUsers } from '../../store/user';
 import { removeComment } from '../../store/comment';
+import EditCommentModal from '../EditCommentModal';
 
 function PostDetailsPage ({setShowModal, post}) {
     const dispatch = useDispatch()
@@ -18,12 +19,16 @@ function PostDetailsPage ({setShowModal, post}) {
     const user = useSelector(state => state.session.user)
     const userId = user?.id
     const username = user.username
-    console.log(username)
     const [description, setDescription] = useState('')
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [showButton, setShowButton] = useState(true)
+    const [errors, setErrors] = useState([]);
+
+
     const updateComment = (e) => setDescription(e.target.value)
     const handleCancel= (e) => {
-        e.preventDefault();
         setShowModal(false)
+        e.preventDefault();
       }
 
     const handleSubmit = async(e) => {
@@ -35,10 +40,21 @@ function PostDetailsPage ({setShowModal, post}) {
             username
         }
 
-        const added = await dispatch(createComment(payload))
-        if (added) {
-            history.push(`/`)
-        }
+        let errors = [];
+        if(!description) errors.push('Please provide a description to post a comment.')
+        if(description.length > 255) errors.push('Playlist name must be less than 400 characters.')
+
+        if (errors.length > 0) {
+            setErrors(errors);
+            return null;
+            } else {
+                setErrors([])
+                const added = await dispatch(createComment(payload))
+                if (added) {
+                    history.push(`/`)
+                    setShowModal(false)
+                }
+            }
     }
 
     const handleDelete = async (e, postComment) => {
@@ -49,10 +65,11 @@ function PostDetailsPage ({setShowModal, post}) {
         }
     }
 
+
+
     useEffect(() => {
-        dispatch(getCommentsByPostId(postId),
-        dispatch(getUsers()))
-    }, [dispatch])
+        dispatch(getComments(),
+        )}, [dispatch])
 
     return (
 
@@ -63,8 +80,16 @@ function PostDetailsPage ({setShowModal, post}) {
             </div>
             <img className='post-detail-image'src={post.image}></img>
             <p>{post.description}</p>
-            <h3>Discussion</h3>
-            <form onSubmit={handleSubmit}>
+            <h3 className='discussion-tag'>Discussion</h3>
+            {errors.length > 0 && (
+        <div className="errors" style= {{display: showButton ? "block" : "none"}}>
+            <p className="error-title"> The following errors were found: </p>
+            <ul className="error-list">
+                {errors.map(error => <li className="error" key={error}>{error}</li>)}
+            </ul>
+        </div>
+        )}
+            <form style= {{display: showButton ? "block" : "none"}} onSubmit={handleSubmit}>
                 <input className='comment-input'
                 placeholder='Leave a comment'
                 value={description}
@@ -76,7 +101,15 @@ function PostDetailsPage ({setShowModal, post}) {
                 <div className='username-comment'>
                     <p className='username-tag'>{postComment.username}</p>
                     <p className='comment-tag'>{postComment.description}</p>
-                    <button onClick={(e) => {handleDelete(e, postComment)}}>Delete</button>
+                    {postComment.userId == userId ?
+                    <>
+                    <EditCommentModal className='comment-modal'comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
+                    <button style= {{display: showButton ? "block" : "none"}} onClick={(e) => {
+                        setShowButton(false)
+                        handleDelete(e, postComment)}}>Delete</button>
+                    </> :
+                    <></>
+                    }
                 </div>
                 </>
             ))}
