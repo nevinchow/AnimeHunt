@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { NavLink } from 'react-router-dom';
 import './SignUpForm.css'
+import * as sessionActions from "../../store/session";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -14,6 +15,10 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login("demo@aa.io", "password"))
+  }
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -105,6 +110,9 @@ const SignUpForm = () => {
         <div className='sign-up-form-input-container'>
         <NavLink className='sign-up-form-login-link'to='/login'>Log in </NavLink>
         </div>
+        <div className='sign-up-form-input-container'>
+  <button onClick={demoLogin}>Log in as a Demo User </button>
+  </div>
     </form>
   );
 };
