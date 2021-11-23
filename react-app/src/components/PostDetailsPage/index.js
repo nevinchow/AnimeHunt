@@ -7,6 +7,7 @@ import { getComments } from '../../store/comment';
 import { createComment } from '../../store/comment';
 import { removeComment } from '../../store/comment';
 import EditCommentModal from '../EditCommentModal';
+import { getUsers } from '../../store/user';
 
 function PostDetailsPage ({setShowModal, post}) {
     const dispatch = useDispatch()
@@ -17,6 +18,7 @@ function PostDetailsPage ({setShowModal, post}) {
     const user = useSelector(state => state.session.user)
     const userId = user?.id
     const username = user?.username
+    const allUsers = useSelector(state=> Object.values(state.userReducer))
     const [description, setDescription] = useState('')
     const [showButton, setShowButton] = useState(true)
     const [errors, setErrors] = useState([]);
@@ -64,8 +66,9 @@ function PostDetailsPage ({setShowModal, post}) {
 
 
     useEffect(() => {
-        dispatch(getComments(),
-        )}, [dispatch])
+        dispatch(getComments())
+        dispatch(getUsers())
+    }, [dispatch])
 
     return (
 
