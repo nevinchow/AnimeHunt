@@ -1,12 +1,8 @@
-
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
 import LogoutButton from '../auth/LogoutButton'
-
 import './NavBar.css'
-import NewPostForm from '../NewPostForm';
 import NewPostModal from '../NewPostModal';
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);

@@ -1,16 +1,8 @@
 import './PostBar.css'
-import { useHistory } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { removePost } from '../../store/post';
-import EditPostModal from '../EditPostModal';
 import { useSelector } from 'react-redux';
 
 function PostBar({post}) {
-    const history = useHistory();
-    const dispatch = useDispatch();
-    const user = useSelector((state) => (state.session.user))
     const comments = useSelector((state) => Object.values(state.commentReducer))
-    console.log(comments)
     const postComments = comments.filter((comment) => comment.postId === post.id)
     return (
         <div className='post-bar-container'>

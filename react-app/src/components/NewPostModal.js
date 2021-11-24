@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { Modal } from '../context/Modal';
 import NewPostForm from './NewPostForm';
 import { useState } from 'react';

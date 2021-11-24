@@ -1,4 +1,3 @@
-import { signUp } from "../../store/session"
 import SignUpForm from "../auth/SignUpForm"
 import './LandingPage.css'
 
