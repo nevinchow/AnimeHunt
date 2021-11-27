@@ -34,3 +34,15 @@
 .discussion-tag {
     padding-bottom: 3%;
 }
+
+.username-comment-image {
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-profile-pic {
+    border-radius: 50%;
+    height: 95px;
+    width: 100px;
+    border: 1px solid black;
+}
