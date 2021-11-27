@@ -11,7 +11,7 @@ class Comment(db.Model):
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"))
     username= db.Column(db.String(255))
     post = db.relationship("Post", back_populates="comments")
-
+    profilePic = db. Column(db.String(255))
 
     def to_dict(self):
         return {
@@ -19,5 +19,6 @@ class Comment(db.Model):
             'userId': self.userId,
             'postId': self.postId,
             'description': self.description,
-            'username': self.username
+            'username': self.username,
+            'profilePic': self.profilePic
         }

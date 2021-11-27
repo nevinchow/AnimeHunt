@@ -97,9 +97,14 @@ function PostDetailsPage ({setShowModal, post}) {
             </form>
             {postComments.map((postComment) => (
                 <>
-                <div className='username-comment'>
+                 <div className='username-comment-image'>
+                    <div className='comment-profile-pic-container'>
+                    <img src={postComment.profilePic} className='comment-profile-pic'></img>
+                    </div>
+                    <div className='username-comment'>
                     <p className='username-tag'>{postComment.username}</p>
                     <p className='comment-tag'>{postComment.description}</p>
+                    </div>
                     {postComment.userId === userId ?
                     <>
                     <EditCommentModal className='comment-modal'comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
