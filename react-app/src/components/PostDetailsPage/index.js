@@ -18,6 +18,7 @@ function PostDetailsPage ({setShowModal, post}) {
     const user = useSelector(state => state.session.user)
     const userId = user?.id
     const username = user?.username
+    const profilePic = user?.profilePic
     const allUsers = useSelector(state=> Object.values(state.userReducer))
     const [description, setDescription] = useState('')
     const [showButton, setShowButton] = useState(true)
@@ -36,7 +37,8 @@ function PostDetailsPage ({setShowModal, post}) {
             userId,
             postId,
             description,
-            username
+            username,
+            profilePic
         }
 
         let errors = [];
