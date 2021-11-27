@@ -76,11 +76,11 @@ function PostDetailsPage ({setShowModal, post}) {
 
         <div className='modal-wrapper'>
             <div className='post-title-cancel-button'>
-            <h2>{post.name}</h2>
+            <h2 className='post-details-title'>{post.name}</h2>
             <button className='post-details-close'onClick={handleCancel}>X</button>
             </div>
             <img className='post-detail-image'src={post.image}></img>
-            <p>{post.description}</p>
+            <p className='post-details-description'>{post.description}</p>
             <h3 className='discussion-tag'>Discussion</h3>
             {errors.length > 0 && (
         <div className="errors" style= {{display: showButton ? "block" : "none"}}>

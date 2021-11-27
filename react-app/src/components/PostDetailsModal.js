@@ -42,8 +42,13 @@ function PostDetailsModal({post}) {
         )}
         {post.userId === user.id ?
             <>
-            <EditPostModal post={post}/>
-            <button onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
+            <div className='dropdown'>
+              <i className="fas fa-ellipsis-h" id='dropdown-button'></i>
+              <div className='dropdown-content'>
+            <EditPostModal className='tag'post={post}/>
+            <button className='post-bar-edit' onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
+              </div>
+            </div>
             </> :
             <></>}
       </div>

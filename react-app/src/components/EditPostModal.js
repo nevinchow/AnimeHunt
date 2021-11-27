@@ -10,9 +10,9 @@ function EditPostModal({post}) {
 
     return (
       <>
-        <button onClick={(e) => {
+        <button className='post-bar-edit' onClick={(e) => {
           e.stopPropagation()
-          setShowEditPostModal(true)}}>Edit Post</button>
+          setShowEditPostModal(true)}}>Edit</button>
         {showEditPostModal && (
           <Modal onClose={() => setShowEditPostModal(false)}>
             <EditPostForm setShowEditPostModal={setShowEditPostModal} post={post}/>
