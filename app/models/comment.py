@@ -10,7 +10,7 @@ class Comment(db.Model):
     description = db.Column(db.String(255), nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"))
     username= db.Column(db.String(255))
-    profilePic = db. Column(db.String(255))
+    profilePic = db.Column(db.String(255))
     post = db.relationship("Post", back_populates="comments")
 
     def to_dict(self):
