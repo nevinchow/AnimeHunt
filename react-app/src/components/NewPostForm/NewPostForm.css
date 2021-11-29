@@ -27,21 +27,44 @@
 
 }
 
-.post-submit-button {
-    width: 10%;
-}
+
 
 .modal-wrapper {
-    width: 55vw;
-    height: 80%;
+    width: 45vw;
+    height: 55%;
     background-color: rgba(255, 255, 255, 1);
     justify-content:center;
     align-items: center;
     position: fixed;
-    top: 12%;
-    right: 22.5%;
+    top: 20%;
+    right: 27.5%;
     display: block;
-    border: 1px solid black;
+    border: 1px solid rgb(189, 195, 199);
     overflow-y: auto;
+    border-radius: 8px;
 
+}
+
+.new-post-buttons-container {
+    display: flex;
+}
+
+.new-post-submit-button {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    margin-left: -20%;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 8px;
+}
+
+.new-post-cancel-button {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 8px;
 }

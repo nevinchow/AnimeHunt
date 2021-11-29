@@ -13,7 +13,17 @@
 .post-details-close {
     width: 40px;
     height: 40px;
-    background-color: white;
+    background-color: orange;
+    color: white;
+    border-radius: 4px;
+}
+
+.post-details-close:hover {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(211, 153, 47);
+    color: white;
+    border-radius: 4px;
 }
 
 .username-comment {
@@ -47,7 +57,7 @@
 .username-comment-image {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(189, 195, 199);
 }
 
 .comment-profile-pic {
