@@ -13,7 +13,6 @@ class Comment(db.Model):
     profilePic = db.Column(db.String(255))
     post = db.relationship("Post", back_populates="comments")
 
-
     def to_dict(self):
         return {
             'id': self.id,

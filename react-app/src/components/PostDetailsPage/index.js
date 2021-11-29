@@ -18,6 +18,7 @@ function PostDetailsPage ({setShowModal, post}) {
     const user = useSelector(state => state.session.user)
     const userId = user?.id
     const username = user?.username
+    const profilePic = user?.profilePic
     const allUsers = useSelector(state=> Object.values(state.userReducer))
     const [description, setDescription] = useState('')
     const [showButton, setShowButton] = useState(true)
@@ -36,7 +37,8 @@ function PostDetailsPage ({setShowModal, post}) {
             userId,
             postId,
             description,
-            username
+            username,
+            profilePic
         }
 
         let errors = [];
@@ -72,13 +74,13 @@ function PostDetailsPage ({setShowModal, post}) {
 
     return (
 
-        <div className='modal-wrapper'>
+        <div className='modal-wrapper-details'>
             <div className='post-title-cancel-button'>
-            <h2>{post.name}</h2>
+            <h2 className='post-details-title'>{post.name}</h2>
             <button className='post-details-close'onClick={handleCancel}>X</button>
             </div>
             <img className='post-detail-image'src={post.image}></img>
-            <p>{post.description}</p>
+            <p className='post-details-description'>{post.description}</p>
             <h3 className='discussion-tag'>Discussion</h3>
             {errors.length > 0 && (
         <div className="errors" style= {{display: showButton ? "block" : "none"}}>
@@ -97,7 +99,8 @@ function PostDetailsPage ({setShowModal, post}) {
             </form>
             {postComments.map((postComment) => (
                 <>
-                <div className='username-comment-image'>
+                 <div className='username-comment-image'>
+
                     <div className='comment-profile-pic-container'>
                     <img src={postComment.profilePic} className='comment-profile-pic'></img>
                     </div>
@@ -107,9 +110,11 @@ function PostDetailsPage ({setShowModal, post}) {
                     </div>
                     {postComment.userId === userId ?
                     <>
-                    <EditCommentModal className='comment-modal'comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
-                    <button style= {{display: showButton ? "block" : "none"}} onClick={(e) => {
+                    <div className='edit-delete-comment-container'>
+                    <EditCommentModal comment={postComment} post={post} setShowButton={setShowButton} showButton={showButton}/>
+                    <button className= 'edit-delete-comment-button'style= {{display: showButton ? "block" : "none"}} onClick={(e) => {
                         handleDelete(e, postComment)}}>Delete</button>
+                    </div>
                     </> :
                     <></>
                     }

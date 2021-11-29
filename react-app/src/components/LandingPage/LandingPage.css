@@ -3,18 +3,20 @@
     flex-direction: row;
     justify-content: space-evenly;
     border: 1px solid black;
-    height: 80vh;
-    width: 80vw;
-    margin-left: 10vw;
+    height: 50vh;
+    width: 60vw;
+    margin-left: 20vw;
     background-color: white;
     position: relative;
-    top: 10%;
+    top: 25%;
+    border-radius: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
 .sign-up-form-container {
     border: 1px solid black;
-    margin-top: 15%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
     height: 50%;
@@ -23,6 +25,7 @@
 
 .welcome-tag {
     margin-top: 15%;
+    font-size: 50px;
 }
 
 .sign-up-tag {
@@ -31,9 +34,41 @@
 }
 
 .background {
-    background-image: url(https://i.ibb.co/BsKt3MK/create-anime-background-style.jpg);
+    background-image: url(https://i.ibb.co/6m98smt/create-anime-background-style.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 3vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.github-linkedin {
+    display: flex;
+    align-items: flex-end;
+    width: 70%;
+    justify-content: space-around;
+    font-size: 25px;
+}
+
+.footer-text {
+    margin-bottom: 0;
+    margin-left: 10%;
+}
+
+.footer-link {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: black;
+    text-decoration: underline;
 }

@@ -14,11 +14,11 @@ const NavBar = () => {
       // Upper Nav Bar
       <nav className='nav-bar'>
             <NavLink to='/' exact={true} activeClassName='active' className='home'>
-              Home
+              <div className='logo'>A</div>
             </NavLink>
             <NewPostModal setIsClosed={setIsClosed}/>
             <img className='user-profilePic' src={sessionUser.profilePic}></img>
-            <LogoutButton className='logout-button' />
+            <LogoutButton />
       </nav>
     );
   } else {

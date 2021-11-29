@@ -56,7 +56,7 @@ export default function EditPostForm({setShowEditPostModal, post}) {
 
 
    return (
-    <div className='modal-wrapper'>
+    <div className='modal-wrapper-edit'>
     <div className='form-page-container'>
   <h2>Edit Post</h2>
   {errors.length > 0 && (
@@ -81,8 +81,10 @@ export default function EditPostForm({setShowEditPostModal, post}) {
   placeholder='Image URL'
   value={image}
   onChange={updatedImage}/>
-  <button className='post-submit-button'type='submit'>Submit</button>
-  <button className='post-cancel-button' onClick={handleCancel}>Cancel</button>
+  <div className='edit-post-buttons2'>
+  <button className='edit-post-submit-button'type='submit'>Submit</button>
+  <button className='edit-post-cancel-button' onClick={handleCancel}>Cancel</button>
+  </div>
 </form>
 </div>
 </div>

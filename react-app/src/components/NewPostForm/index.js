@@ -83,8 +83,10 @@ export default function NewPostForm({setShowModal}) {
   placeholder='Image URL'
   value={image}
   onChange={updatedImage}/>
-  <button className='post-submit-button'type='submit'>Submit</button>
-  <button className='post-cancel-button' onClick={handleCancel}>Cancel</button>
+  <div className='new-post-buttons-container'>
+  <button className='new-post-submit-button'type='submit'>Submit</button>
+  <button className='new-post-cancel-button' onClick={handleCancel}>Cancel</button>
+  </div>
 </form>
 </div>
 </div>

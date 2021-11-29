@@ -1,10 +1,11 @@
 .nav-bar {
-    height: 9vh;
-    background-color: black;
+    height: 8vh;
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    border-bottom: 1px solid rgb(236, 236, 236)
 }
 
 .user-profilePic {
@@ -12,8 +13,59 @@
     height: 80%;
     width: 4%;
     margin-right: 3%;
+    border: 2px solid black;
 }
 
 .home {
-    margin-right: 85%
+    margin-right: 80%;
+    color: black;
+    text-decoration: none;
+}
+
+.new-post-button {
+    position: relative;
+    right: 30px;
+    background-color: orange;
+    border-radius: 7px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    min-width: 110px;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: bold;
+    height: 45px;
+    align-items: center;
+}
+
+.log-out-button {
+    position: relative;
+    right: 30px;
+    background-color: orange;
+    border-radius: 7px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    min-width: 110px;
+    justify-content: space-evenly;
+    color: white;
+    font-weight: bold;
+    height: 45px;
+    align-items: center;
+}
+
+.logo {
+    background-color: orange;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

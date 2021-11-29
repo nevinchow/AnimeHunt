@@ -8,3 +8,4 @@ class CommentForm(FlaskForm):
     userId = IntegerField('userId')
     postId = IntegerField('postId')
     username = StringField('username')
+    profilePic= StringField('profilePic')
