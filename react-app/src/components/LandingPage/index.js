@@ -13,6 +13,13 @@ function LandingPage() {
         </div>
         </div>
         </div>
+        <footer className='footer'>
+            <h2 className='footer-text'>Made by: Nevin Chow</h2>
+            <div className='github-linkedin'>
+            <a className='footer-link'href='https://github.com/nevinchow'>Github</a>
+            <a className='footer-link'href='https://www.linkedin.com/in/nevin-chow-aa4770221/'>LinkedIn</a>
+            </div>
+        </footer>
         </>
     )
 }
