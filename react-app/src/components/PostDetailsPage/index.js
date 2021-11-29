@@ -100,6 +100,7 @@ function PostDetailsPage ({setShowModal, post}) {
             {postComments.map((postComment) => (
                 <>
                  <div className='username-comment-image'>
+
                     <div className='comment-profile-pic-container'>
                     <img src={postComment.profilePic} className='comment-profile-pic'></img>
                     </div>
