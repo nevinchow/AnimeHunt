@@ -111,7 +111,7 @@ const SignUpForm = () => {
         <NavLink className='sign-up-form-login-link'to='/login'>Log in </NavLink>
         </div>
         <div className='sign-up-form-input-container'>
-  <button onClick={demoLogin}>Log in as a Demo User </button>
+  <button className='sign-up-form-demo-login'onClick={demoLogin}>Log in as a Demo User </button>
   </div>
     </form>
   );
