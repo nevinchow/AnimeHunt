@@ -74,7 +74,7 @@ function PostDetailsPage ({setShowModal, post}) {
 
     return (
 
-        <div className='modal-wrapper'>
+        <div className='modal-wrapper-details'>
             <div className='post-title-cancel-button'>
             <h2 className='post-details-title'>{post.name}</h2>
             <button className='post-details-close'onClick={handleCancel}>X</button>
