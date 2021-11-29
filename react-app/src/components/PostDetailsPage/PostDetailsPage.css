@@ -59,6 +59,7 @@
 
 .dropdown-content {
     display: none;
+    margin-bottom: 0;
 }
 
 .dropdown:hover .dropdown-content {
@@ -72,6 +73,7 @@
     bottom: 195px;
     margin-left: 95%;
     width: 2%;
+    margin-bottom: 0;
 }
 
 .dropdown:hover #dropdown-button {
@@ -79,8 +81,11 @@
 }
 
 .post-bar-edit {
-    background-color: white;
-    border: solid 1px black
+    background-color: orange;
+    border: solid 1px black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
 }
 
 .modal-wrapper {
@@ -93,6 +98,8 @@
 
 .post-details-description {
     padding-left: 5%;
+    font-size: 17px;
+    width: 90%;
 }
 
 .username-comment-image {
@@ -102,4 +109,30 @@
 .comment-profile-pic-container {
     padding-top: 1%;
     padding-bottom: .5%;
+}
+
+/* from homepageposts */
+.post-bar-background {
+    background: #ffffff;
+
+}
+
+.post-bar-background:hover {
+    background: #ffffff;
+    background: linear-gradient(to right, #fff 40%,#e7972f  100%);
+    transition: opacity 1s ease-in-out;
+    border-radius: 8px;
+}
+
+.edit-delete-comment-button {
+    height: 50px;
+    margin-top: 15%;
+    background-color: orange;
+    border-radius: 8px;
+    color: white;
+}
+.edit-delete-comment-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
 }

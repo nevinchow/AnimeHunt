@@ -1,5 +1,5 @@
 .post-bar-container {
-    border: 1px solid black;
+    border: 1px solid rgb(189, 195, 199);
     height: 10vh;
     display: flex;
     padding-top: 24px;
@@ -8,13 +8,15 @@
     justify-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
+    border-radius: 8px;
 }
 
 .post-image {
-    height: 126%;
+    height: 136%;
     width: 20%;
     margin-right: 20px;
-    margin-top: -15px;
+    margin-top: -24px;
+    border-radius: 8px;
 }
 
 .post-name {
@@ -36,4 +38,3 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 
 }
-

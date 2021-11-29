@@ -8,7 +8,7 @@ function NewPostModal() {
 
     return (
       <>
-        <button onClick={() => setShowModal(true)}>New Post</button>
+        <button className='new-post-button' onClick={() => setShowModal(true)}>New Post</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <NewPostForm setShowModal={setShowModal}/>

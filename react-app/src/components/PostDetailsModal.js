@@ -30,7 +30,7 @@ function PostDetailsModal({post}) {
     return (
       <>
       <div>
-      <div onClick={(e) => {
+      <div className='post-bar-background'onClick={(e) => {
         e.stopPropagation()
         setShowModal(true)}}>
         <PostBar post={post}/>
@@ -45,7 +45,7 @@ function PostDetailsModal({post}) {
             <div className='dropdown'>
               <i className="fas fa-ellipsis-h" id='dropdown-button'></i>
               <div className='dropdown-content'>
-            <EditPostModal className='tag'post={post}/>
+            <EditPostModal post={post}/>
             <button className='post-bar-edit' onClick={(e)=> {handleDelete(e, post)}}>Delete</button>
               </div>
             </div>

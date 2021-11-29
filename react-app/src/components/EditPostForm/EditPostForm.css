@@ -1,9 +1,54 @@
 .edit-comment-modal {
     position: relative;
-    margin-left: 13%;
-    margin-top: 16.5%;
+    margin-left: 4%;
+    margin-top: -20%;
 }
 
 .comment-modal {
     position: relative;
+}
+
+.modal-wrapper-edit {
+    width: 45vw;
+    height: 55%;
+    background-color: rgba(255, 255, 255, 1);
+    justify-content:center;
+    align-items: center;
+    position: fixed;
+    top: 12%;
+    right: 27.5%;
+    display: block;
+    border: 1px solid black;
+    overflow-y: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.edit-post-buttons2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-post-submit-button {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    margin-left: -20%;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.edit-post-cancel-button {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.edit-comment-modal-2 {
+    width: 15%;
+    height: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
 }

@@ -64,10 +64,11 @@ function EditCommentForm({comment, setShowCommentModal, post, setShowButton}) {
         </div>
         )}
         <form onSubmit={handleSubmit}>
-            <input
+            <textarea
+            className='edit-comment-modal-2'
             placeholder='Update Comment'
             value={description}
-            onChange={updatedComment}></input>
+            onChange={updatedComment}></textarea>
             <button type='submit'>Edit</button>
         </form>
         </div>
