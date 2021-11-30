@@ -6,7 +6,8 @@ function LandingPage() {
         <>
         <div className='background'>
         <div className='landing-page-container'>
-        <h2 className='welcome-tag'>Welcome to AnimeHunt</h2>
+        <h2 className='welcome-tag'>Welcome to AnimeHunt
+        <h3 className='site-description'>A place for anime enthusiasts to share and talk about the latest anime episodes, movies, or other releases.</h3></h2>
         <div className='sign-up-form-container'>
         <h2 className='sign-up-tag'>Sign Up </h2>
         <SignUpForm/>

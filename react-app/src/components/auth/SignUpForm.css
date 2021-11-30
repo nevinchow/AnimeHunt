@@ -15,6 +15,7 @@
 .log-in-nav-link {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 13%;
 }
 .sign-up-form-login-link {
     margin-bottom: 5%;
@@ -37,6 +38,15 @@
 }
 
 .sign-up-form-demo-login {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 8px;
+}
+
+.sign-up-form-demo {
     background-color: orange;
     color: white;
     height: 200%;
