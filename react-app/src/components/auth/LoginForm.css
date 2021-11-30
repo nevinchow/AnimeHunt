@@ -41,3 +41,12 @@
     color: red;
     font-size: 10px;
 }
+
+.log-in-form-button {
+    background-color: orange;
+    color: white;
+    height: 200%;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 8px;
+}
