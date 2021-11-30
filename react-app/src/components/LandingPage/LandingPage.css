@@ -1,11 +1,11 @@
 .landing-page-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     border: 1px solid black;
     height: 50vh;
-    width: 60vw;
-    margin-left: 20vw;
+    width: 50vw;
+    margin-left: 25vw;
     background-color: white;
     position: relative;
     top: 25%;
@@ -16,16 +16,18 @@
 
 .sign-up-form-container {
     border: 1px solid black;
-    margin-top: 10%;
+    margin-top: 8%;
+    margin-right: 10%;
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 56%;
     background-color: white;
 }
 
 .welcome-tag {
-    margin-top: 15%;
+    margin-top: 20%;
     font-size: 50px;
+    margin-left: 10%;
 }
 
 .sign-up-tag {
@@ -71,4 +73,11 @@
 .footer-link:hover {
     color: black;
     text-decoration: underline;
+}
+
+.site-description {
+    font-size: 20px;
+    width: 50%;
+    color: gray;
+
 }
