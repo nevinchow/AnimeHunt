@@ -19,7 +19,6 @@ function PostDetailsPage ({setShowModal, post}) {
     const userId = user?.id
     const username = user?.username
     const profilePic = user?.profilePic
-    const allUsers = useSelector(state=> Object.values(state.userReducer))
     const [description, setDescription] = useState('')
     const [showButton, setShowButton] = useState(true)
     const [errors, setErrors] = useState([]);
