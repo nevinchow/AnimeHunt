@@ -1,135 +1,42 @@
-# Flask React Project
+# Welcome to Anime Hunt
 
-This is the starter for the Flask React project.
+_Anime Hunt is clone of Product Hunt that allows users to discover anime, create posts that review anime, and talk to others about anime._
 
-## Getting started
+Hosted on Heroku: https://animehunt-aa.herokuapp.com/
 
-1. Clone this repository (only this branch)
+# Features of Anime Hunt
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+All features require user authorization. Demo login is provided.
 
-2. Install dependencies
+## 1. Posts CRUD
+* Users are able to create, edit, and delete posts by inputting a title, description, and image URL.
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## 2. Comments CRUD
+* Users are able to create, edit, and delete their comments on posts.
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+## This Site Was Developed Using
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+![alt text](https://camo.githubusercontent.com/a194f5f466da233b84ca5728247f6bc3c338d2d7b80041784dd81e1a6dbc8afd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d507974686f6e2d3337373641423f7374796c653d666c61742d737175617265266c6f676f3d507974686f6e266c6f676f436f6c6f723d776869746526)
+ ![alt text](https://camo.githubusercontent.com/4791603fce2a6866ee2fb00bca2b48ea26bc934fa054a2fe63da4ae3e8518c10/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d52656163742d3631444146423f6c6f676f3d5265616374266c6f676f436f6c6f723d333333333333)
+![alt text](https://camo.githubusercontent.com/37b03eda8464fa74e1a7343cbac75fc9d3803a68a3a0d5b6fad3162437dc59cb/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d4a6176615363726970742d4637444631453f6c6f676f3d4a617661536372697074266c6f676f436f6c6f723d333333333333)
 
-   ```bash
-   pipenv shell
-   ```
+![alt text](https://camo.githubusercontent.com/5a611392726e9c4479fb9e8d838bc0cee31474cea29e4b3b3faf33e378803033/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d506f737467726553514c2d3333363739313f6c6f676f3d506f737467726553514c266c6f676f436f6c6f723d7768697465)
+![alt text](https://camo.githubusercontent.com/3b6655d2610a0c0ecfaaaea3b5947ddcf1689f3762a1a4c4f62069db730db015/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d466c61736b2d3030303030303f7374796c653d666c61742d737175617265266c6f676f3d466c61736b266c6f676f436f6c6f723d7768697465)
+![alt text](https://camo.githubusercontent.com/f70d9d9438b04e316fbba35c08d92860203762cec6212ef53ddd02d930014866/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f6c6f676f3d43535333)
 
-   ```bash
-   flask db migrate # migrate models 
-   flask db upgrade
-   ```
+## Developers:
+_This full stack application was developed by [App Academy](https://github.com/appacademy) Students in November of 2021_
 
-   ```bash
-   flask seed all
-   ```
+<img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/)
 
-   ```bash
-   flask run
-   ```
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+# Site Experience
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+## Landing/Sign Up Page
+![Alt text](https://i.gyazo.com/b5b29a61492c72bf174f00ce6bbf82c9.jpg)
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+## Main Page/Posts Page
+![Alt text](https://i.gyazo.com/17f63d3e59a5f6e6a2503c0dba9e307c.png)
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
-
-## Deploy to Heroku
-
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
-
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
-
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
-
-   ```bash
-   heroku login
-   ```
-
-6. Login to the heroku container registry
-
-   ```bash
-   heroku container:login
-   ```
-
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
-
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
-
-9. Release your docker container to heroku
-
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+## Post Details Modal/Comments section
+![Alt text](https://i.gyazo.com/856725cf8bc178b961b058cc6b988069.png)
