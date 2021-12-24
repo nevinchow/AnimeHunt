@@ -68,6 +68,28 @@ export const removePost=(postId)=>async(dispatch) => {
       }
 }
 
+export const increaseUpvote=(post)=> async(dispatch) => {
+    const response = await fetch(`/api/posts/${post.id}/upCount`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(post),
+    })
+    const updatedPost = await response.json();
+    dispatch(addPost(updatedPost));
+    return updatedPost
+}
+
+
+export const decreaseUpvote=(post)=> async(dispatch) => {
+    const response = await fetch(`/api/posts/${post.id}/downCount`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(post),
+    })
+    const updatedPost = await response.json();
+    dispatch(addPost(updatedPost));
+    return updatedPost
+}
 const initialState = {};
 
 

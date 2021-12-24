@@ -53,3 +53,20 @@ def edit_post(id):
         post.image = data['image']
         db.session.commit()
         return post.to_dict()
+
+
+@post_routes.route('/<int:id>/upCount', methods=['POST'])
+def edit_postUpCount(id):
+    post = Post.query.get(id)
+    post.upvoteCount += 1
+    db.session.commit()
+
+    return post.to_dict()
+
+@post_routes.route('/<int:id>/downCount', methods=['POST'])
+def edit_postDownCount(id):
+    post = Post.query.get(id)
+    post.upvoteCount -= 1
+    db.session.commit()
+
+    return post.to_dict()

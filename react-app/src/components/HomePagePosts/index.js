@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 import { getPosts } from "../../store/post"
 import PostDetailsModal from "../PostDetailsModal";
+import UpvoteDownvoteCounter from "../UpvoteDownvoteCounter";
 function PostsContainer () {
     const dispatch = useDispatch()
     const posts = useSelector((state) => Object.values(state.postReducer))
@@ -18,7 +19,6 @@ function PostsContainer () {
          {posts.reverse().map((post)=>(
                 <>
                 <PostDetailsModal post={post}/>
-
                 </>
             ))}
         </>
