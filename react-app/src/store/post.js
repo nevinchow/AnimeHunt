@@ -33,10 +33,21 @@ export const getPosts = () => async(dispatch) => {
 }
 
 export const createPost=(payload) => async(dispatch) => {
+    const {
+        name,
+        description,
+        file,
+        userId
+    } = payload
+
+    const form = new FormData();
+    form.append("name", name)
+    form.append("description", description)
+    form.append("userId", userId)
+    form.append("file", file)
     const response = await fetch(`/api/posts/add_post` , {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
+        body: form
     })
     if (response.ok) {
         const post = await response.json()
@@ -44,6 +55,7 @@ export const createPost=(payload) => async(dispatch) => {
         return post
     }
 }
+
 
 export const editPost = (payload) => async(dispatch) => {
     const response = await fetch(`/api/posts/${payload.postId}/edit`, {

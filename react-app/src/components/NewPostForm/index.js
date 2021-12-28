@@ -12,14 +12,17 @@ export default function NewPostForm({setShowModal}) {
     const history = useHistory();
     const [name, setName] = useState("")
     const [description, setDescription] = useState("")
-    const [image, setImage] = useState("")
+    const [file, setFile] = useState("")
     const user = useSelector(state => state.session.user)
     const userId = user.id
     const [errors, setErrors] = useState([]);
 
     const updateName = (e) => setName(e.target.value)
     const updateDescription = (e) => setDescription(e.target.value)
-    const updatedImage = (e) => setImage(e.target.value)
+    const updateFile = (e) => {
+      const file = e.target.files[0];
+      if (file) setFile(file);
+    };
 
 
     const handleSubmit=async (e)=>{
@@ -27,8 +30,8 @@ export default function NewPostForm({setShowModal}) {
         const payload={
             name,
             description,
-            image,
-            userId,
+            file,
+            userId
         }
 
         let errors = [];
@@ -36,8 +39,7 @@ export default function NewPostForm({setShowModal}) {
         if(!name) errors.push('Please enter a name for the post.');
         if(!description) errors.push('Please provide a description for the post.')
         if(description.length > 400) errors.push('Playlist name must be less than 400 characters.')
-        if(!image) errors.push('Please provide a link to an image.')
-
+        if(description.length < 5) errors.push('Please provide a longer description.')
         if (errors.length > 0) {
           setErrors(errors);
           return null;
@@ -79,10 +81,13 @@ export default function NewPostForm({setShowModal}) {
   placeholder='Description'
   value={description}
   onChange={updateDescription}/>
+  <label>
   <input className='post-form-input'
-  placeholder='Image URL'
-  value={image}
-  onChange={updatedImage}/>
+  accept='image/*'
+  name='file'
+  type="file"
+  onChange={updateFile}/>
+  </label>
   <div className='new-post-buttons-container'>
   <button className='new-post-submit-button'type='submit'>Submit</button>
   <button className='new-post-cancel-button' onClick={handleCancel}>Cancel</button>
