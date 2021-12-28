@@ -6,8 +6,8 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer)
-    upvoteCount = db.Column(db.Integer)
-    downvoteCount = db.Column(db.Integer)
+    upvoteCount = db.Column(db.Integer, default=0)
+    downvoteCount = db.Column(db.Integer, default=0)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(400), nullable=False)
     image = db.Column(db.String(255))

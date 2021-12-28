@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import { removePost } from '../store/post';
 import EditPostModal from './EditPostModal';
 import { useHistory } from 'react-router';
-
 function PostDetailsModal({post}) {
     const dispatch = useDispatch();
     const history = useHistory();
