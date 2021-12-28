@@ -4,17 +4,24 @@ import { useDispatch } from 'react-redux';
 import {useHistory} from 'react-router'
 import { increaseUpvote } from '../../store/post';
 import { decreaseUpvote } from '../../store/post';
-
+import { useState } from 'react';
 function UpvoteDownvoteCounter({post}) {
     const count = post.upvoteCount
     const dispatch = useDispatch();
     const history = useHistory();
+    const [clicked, setClicked] = useState(false)
+    const [clickedDown, setClickedDown] = useState(false)
 
     const upvote = async(e, post) => {
         e.preventDefault();
         e.stopPropagation();
-        let data = await dispatch(increaseUpvote(post))
-        if (data) {
+        if (clicked === false) {
+            await dispatch(increaseUpvote(post))
+            setClicked(true)
+            history.push(`/`)
+        } else if (clicked === true) {
+            await dispatch(decreaseUpvote(post))
+            setClicked(false)
             history.push(`/`)
         }
     }
@@ -22,8 +29,13 @@ function UpvoteDownvoteCounter({post}) {
     const downvote = async(e, post) => {
         e.preventDefault();
         e.stopPropagation();
-        let data = await dispatch(decreaseUpvote(post))
-        if (data) {
+        if (clickedDown === false) {
+            await dispatch(decreaseUpvote(post))
+            setClickedDown(true)
+            history.push(`/`)
+        } else if (clickedDown === true) {
+            await dispatch(increaseUpvote(post))
+            setClickedDown(false)
             history.push(`/`)
         }
     }
