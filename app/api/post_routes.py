@@ -57,6 +57,7 @@ def delete_post(id):
 # @login_required
 def edit_post(id):
 
+    
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
