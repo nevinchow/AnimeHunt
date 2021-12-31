@@ -19,7 +19,6 @@ def posts():
 @login_required
 def add_post():
 
-    print (request.form.get('name'))
     if "file" not in request.files:
         return "No user_file key in request.files"
 
