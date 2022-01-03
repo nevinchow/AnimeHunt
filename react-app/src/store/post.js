@@ -58,10 +58,22 @@ export const createPost=(payload) => async(dispatch) => {
 
 
 export const editPost = (payload) => async(dispatch) => {
+    const {
+        name,
+        description,
+        file,
+        postId,
+        userId
+    } = payload
+    const form = new FormData();
+    form.append("name", name)
+    form.append("description", description)
+    form.append("file", file)
+    form.append("postId", postId)
+    form.append("userId", userId)
     const response = await fetch(`/api/posts/${payload.postId}/edit`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: form
     })
     const newPost = await response.json();
     dispatch(addPost(newPost));

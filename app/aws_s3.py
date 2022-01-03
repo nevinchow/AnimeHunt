@@ -8,6 +8,8 @@ s3 = boto3.client(
    aws_access_key_id=Config.S3_KEY,
    aws_secret_access_key=Config.S3_SECRET
 )
+def delete_from_bucket(bucket_name, key):
+    s3.delete_object(Bucket=bucket_name, Key=key)
 
 def upload_file_to_s3(file, bucket_name, acl="public-read"):
 
