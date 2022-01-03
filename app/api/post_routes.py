@@ -47,6 +47,8 @@ def add_post():
 @post_routes.route('/<int:id>/delete', methods=['DELETE'])
 def delete_post(id):
     post = Post.query.get(id)
+    post_to_delete = post.image.split('/')[3]
+    delete_from_bucket(Config.S3_BUCKET, post_to_delete)
     db.session.delete(post)
     db.session.commit()
 
