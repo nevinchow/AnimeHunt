@@ -19,7 +19,6 @@ def posts():
 @login_required
 def add_post():
 
-    print (request.form.get('name'))
     if "file" not in request.files:
         return "No user_file key in request.files"
 
@@ -48,6 +47,8 @@ def add_post():
 @post_routes.route('/<int:id>/delete', methods=['DELETE'])
 def delete_post(id):
     post = Post.query.get(id)
+    post_to_delete = post.image.split('/')[3]
+    delete_from_bucket(Config.S3_BUCKET, post_to_delete)
     db.session.delete(post)
     db.session.commit()
 
@@ -57,17 +58,18 @@ def delete_post(id):
 @post_routes.route('/<int:id>/edit', methods=['POST'])
 # @login_required
 def edit_post(id):
+    post = Post.query.get(id)
+    post_to_delete = post.image.split('/')[3]
 
-    form = PostForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        data = form.data
-        post = Post.query.get(id)
-        post.name = data['name']
-        post.description = data['description']
-        post.image = data['image']
-        db.session.commit()
-        return post.to_dict()
+    postFile = request.files["file"]
+    file_url = upload_file_to_s3(postFile, Config.S3_BUCKET)
+    delete_from_bucket(Config.S3_BUCKET, post_to_delete)
+    post.name= request.form.get('name')
+    post.description= request.form.get('description'),
+    post.image= file_url
+
+    db.session.commit()
+    return post.to_dict()
 
 
 @post_routes.route('/<int:id>/upCount', methods=['POST'])

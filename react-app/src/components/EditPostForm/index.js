@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { editPost } from '../../store/post';
 import './EditPostForm.css'
@@ -10,28 +10,31 @@ export default function EditPostForm({setShowEditPostModal, post}) {
     const history = useHistory();
     const [name, setName] = useState(post.name)
     const [description, setDescription] = useState(post.description)
-    const [image, setImage] = useState(post.image)
+    const [file, setFile] = useState("")
     const postId = post.id
     const [errors, setErrors] = useState([]);
-
+    const user = useSelector(state => state.session.user)
+    const userId = user.id
     const updateName = (e) => setName(e.target.value)
     const updateDescription = (e) => setDescription(e.target.value)
-    const updatedImage = (e) => setImage(e.target.value)
-
+    const updateFile = (e) => {
+      const file = e.target.files[0];
+      if (file) setFile(file);
+    };
     const handleSubmit=async (e)=>{
         e.preventDefault();
         const payload={
             name,
             description,
-            image,
-            postId
+            file,
+            postId,
+            userId
         }
 
         let errors = [];
         if(!name) errors.push('Please enter a name for the post.');
         if(!description) errors.push('Please provide a description for the post.')
         if(description.length > 400) errors.push('Playlist name must be less than 400 characters.')
-        if(!image) errors.push('Please provide a link to an image.')
 
 
         if (errors.length > 0) {
@@ -78,9 +81,9 @@ export default function EditPostForm({setShowEditPostModal, post}) {
   value={description}
   onChange={updateDescription}/>
   <input className='post-form-input'
-  placeholder='Image URL'
-  value={image}
-  onChange={updatedImage}/>
+  name='file'
+  type='file'
+  onChange={updateFile}/>
   <div className='edit-post-buttons2'>
   <button className='edit-post-submit-button'type='submit'>Submit</button>
   <button className='edit-post-cancel-button' onClick={handleCancel}>Cancel</button>
