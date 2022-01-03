@@ -81,6 +81,7 @@ export default function EditPostForm({setShowEditPostModal, post}) {
   value={description}
   onChange={updateDescription}/>
   <input className='post-form-input'
+  accept='image/*'
   name='file'
   type='file'
   onChange={updateFile}/>
