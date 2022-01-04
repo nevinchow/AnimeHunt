@@ -11,10 +11,10 @@ All features require user authorization. Demo login is provided.
 ## 1. Posts CRUD
 * Users are able to create, edit, and delete posts by inputting a title, description, and an image file.
 
-Create Post
+### Create Post
 ![Alt text](https://i.gyazo.com/39b7a4f89439569939ca3aa88c676c0a.png)
 
-Edit Post
+### Edit Post
 ![Alt text](https://i.gyazo.com/39b7a4f89439569939ca3aa88c676c0a.png)
 
 ## 2. Comments CRUD
@@ -42,10 +42,11 @@ _This full stack application was developed by [App Academy](https://github.com/a
 
 ## Landing/Sign Up Page
 
-Page users expect to see upon hitting the site.
+### Page users expect to see upon hitting the site.
 ![Alt text](https://i.gyazo.com/b5b29a61492c72bf174f00ce6bbf82c9.jpg)
 
-Page users expect to see upon signing up/logging in.
+### Page users expect to see upon signing up/logging in.
+
 ## Main Page/Posts Page
 ![Alt text](https://i.gyazo.com/17f63d3e59a5f6e6a2503c0dba9e307c.png)
 
