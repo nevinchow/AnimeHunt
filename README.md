@@ -40,13 +40,14 @@ _This full stack application was developed by [App Academy](https://github.com/a
 
 ## Landing/Sign Up Page
 
-### Page users expect to see upon hitting the site.
+* Page users expect to see upon hitting the site.
 
 ![Alt text](https://i.gyazo.com/b5b29a61492c72bf174f00ce6bbf82c9.jpg)
 
-### Page users expect to see upon signing up/logging in.
 
 ## Main Page/Posts Page
+
+* Page users expect to see upon signing up/logging in.
 
 ![Alt text](https://i.gyazo.com/17f63d3e59a5f6e6a2503c0dba9e307c.png)
 
