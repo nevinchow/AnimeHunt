@@ -8,12 +8,13 @@
 }
 
 .upvoteContainer {
-    width: 75%;
+    width: 80%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 10%;
 }
 
 .counter-container {
-    margin-right: 50px;
+    margin-right: 40px;
 }
